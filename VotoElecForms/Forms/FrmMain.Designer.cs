@@ -1,6 +1,6 @@
 ﻿namespace VotoElecForms
 {
-    partial class frmMain
+    partial class FrmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -33,6 +33,8 @@
             this.registracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.candidatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.electorresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.votacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ganadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +53,9 @@
             // 
             // votoElectronicoToolStripMenuItem
             // 
+            this.votoElectronicoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.votacionToolStripMenuItem,
+            this.ganadorToolStripMenuItem});
             this.votoElectronicoToolStripMenuItem.Name = "votoElectronicoToolStripMenuItem";
             this.votoElectronicoToolStripMenuItem.Size = new System.Drawing.Size(105, 19);
             this.votoElectronicoToolStripMenuItem.Text = "Voto Electronico";
@@ -69,12 +74,28 @@
             this.candidatosToolStripMenuItem.Name = "candidatosToolStripMenuItem";
             this.candidatosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.candidatosToolStripMenuItem.Text = "Candidatos";
+            this.candidatosToolStripMenuItem.Click += new System.EventHandler(this.candidatosToolStripMenuItem_Click);
             // 
             // electorresToolStripMenuItem
             // 
             this.electorresToolStripMenuItem.Name = "electorresToolStripMenuItem";
             this.electorresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.electorresToolStripMenuItem.Text = "Electores";
+            this.electorresToolStripMenuItem.Click += new System.EventHandler(this.electorresToolStripMenuItem_Click);
+            // 
+            // votacionToolStripMenuItem
+            // 
+            this.votacionToolStripMenuItem.Name = "votacionToolStripMenuItem";
+            this.votacionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.votacionToolStripMenuItem.Text = "Votacion";
+            this.votacionToolStripMenuItem.Click += new System.EventHandler(this.votacionToolStripMenuItem_Click);
+            // 
+            // ganadorToolStripMenuItem
+            // 
+            this.ganadorToolStripMenuItem.Name = "ganadorToolStripMenuItem";
+            this.ganadorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ganadorToolStripMenuItem.Text = "Ganador";
+            this.ganadorToolStripMenuItem.Click += new System.EventHandler(this.ganadorToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -86,8 +107,9 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.Name = "frmMain";
+            this.Name = "FrmMain";
             this.Text = "Menu Principal";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -102,6 +124,8 @@
         private System.Windows.Forms.ToolStripMenuItem registracionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem candidatosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem electorresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem votacionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ganadorToolStripMenuItem;
     }
 }
 

@@ -30,24 +30,24 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.BtnSave = new System.Windows.Forms.Button();
+            this.BtnCancel = new System.Windows.Forms.Button();
+            this.txtBxNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBxPrimerApellido = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtBxCedula = new System.Windows.Forms.TextBox();
+            this.txtBxSegundoApellido = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.BtnDelete = new System.Windows.Forms.Button();
+            this.BtnSearch = new System.Windows.Forms.Button();
+            this.BtnEdit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.dgvCandidatos = new System.Windows.Forms.DataGridView();
             this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrimerApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +55,7 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCandidatos)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -67,16 +67,27 @@
             this.panel1.Size = new System.Drawing.Size(1047, 100);
             this.panel1.TabIndex = 0;
             // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(343, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(420, 29);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Registro de Candidatos";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.BtnSave);
+            this.panel2.Controls.Add(this.BtnCancel);
+            this.panel2.Controls.Add(this.txtBxNombre);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.txtBxPrimerApellido);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBox4);
-            this.panel2.Controls.Add(this.textBox5);
+            this.panel2.Controls.Add(this.txtBxCedula);
+            this.panel2.Controls.Add(this.txtBxSegundoApellido);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -85,43 +96,34 @@
             this.panel2.Size = new System.Drawing.Size(475, 512);
             this.panel2.TabIndex = 1;
             // 
-            // panel3
+            // BtnSave
             // 
-            this.panel3.Controls.Add(this.button4);
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.button2);
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(475, 100);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(572, 78);
-            this.panel3.TabIndex = 2;
+            this.BtnSave.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSave.Location = new System.Drawing.Point(378, 465);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(91, 35);
+            this.BtnSave.TabIndex = 21;
+            this.BtnSave.Text = "Guardar";
+            this.BtnSave.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // BtnCancel
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(169, 247);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 29);
-            this.textBox3.TabIndex = 7;
+            this.BtnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BtnCancel.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCancel.Location = new System.Drawing.Point(12, 465);
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(91, 35);
+            this.BtnCancel.TabIndex = 20;
+            this.BtnCancel.Text = "Cancelar";
+            this.BtnCancel.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // txtBxNombre
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(103, 250);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 24);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "label3";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(100, 65);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(336, 29);
-            this.textBox1.TabIndex = 13;
+            this.txtBxNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBxNombre.Location = new System.Drawing.Point(100, 65);
+            this.txtBxNombre.Name = "txtBxNombre";
+            this.txtBxNombre.Size = new System.Drawing.Size(336, 29);
+            this.txtBxNombre.TabIndex = 13;
             // 
             // label1
             // 
@@ -133,13 +135,13 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Nombre";
             // 
-            // textBox2
+            // txtBxPrimerApellido
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(160, 100);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(276, 29);
-            this.textBox2.TabIndex = 15;
+            this.txtBxPrimerApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBxPrimerApellido.Location = new System.Drawing.Point(160, 100);
+            this.txtBxPrimerApellido.Name = "txtBxPrimerApellido";
+            this.txtBxPrimerApellido.Size = new System.Drawing.Size(276, 29);
+            this.txtBxPrimerApellido.TabIndex = 15;
             // 
             // label2
             // 
@@ -151,21 +153,21 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Primer Apellido";
             // 
-            // textBox4
+            // txtBxCedula
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(16, 30);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(420, 29);
-            this.textBox4.TabIndex = 17;
+            this.txtBxCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBxCedula.Location = new System.Drawing.Point(16, 30);
+            this.txtBxCedula.Name = "txtBxCedula";
+            this.txtBxCedula.Size = new System.Drawing.Size(420, 29);
+            this.txtBxCedula.TabIndex = 17;
             // 
-            // textBox5
+            // txtBxSegundoApellido
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(184, 135);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(252, 29);
-            this.textBox5.TabIndex = 19;
+            this.txtBxSegundoApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBxSegundoApellido.Location = new System.Drawing.Point(184, 135);
+            this.txtBxSegundoApellido.Name = "txtBxSegundoApellido";
+            this.txtBxSegundoApellido.Size = new System.Drawing.Size(252, 29);
+            this.txtBxSegundoApellido.TabIndex = 19;
             // 
             // label4
             // 
@@ -187,75 +189,76 @@
             this.label5.TabIndex = 18;
             this.label5.Text = "Segundo Apellido";
             // 
-            // label7
+            // panel3
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(343, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(420, 29);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Registro de Candidatos";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel3.Controls.Add(this.BtnDelete);
+            this.panel3.Controls.Add(this.BtnSearch);
+            this.panel3.Controls.Add(this.BtnEdit);
+            this.panel3.Controls.Add(this.btnAdd);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(475, 100);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(572, 78);
+            this.panel3.TabIndex = 2;
             // 
-            // button1
+            // BtnDelete
             // 
-            this.button1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(15, 24);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 35);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnDelete.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDelete.Location = new System.Drawing.Point(306, 24);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(91, 35);
+            this.BtnDelete.TabIndex = 3;
+            this.BtnDelete.Text = "Eliminar";
+            this.BtnDelete.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // BtnSearch
             // 
-            this.button2.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(112, 24);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 35);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnSearch.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSearch.Location = new System.Drawing.Point(209, 24);
+            this.BtnSearch.Name = "BtnSearch";
+            this.BtnSearch.Size = new System.Drawing.Size(91, 35);
+            this.BtnSearch.TabIndex = 2;
+            this.BtnSearch.Text = "Buscar";
+            this.BtnSearch.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // BtnEdit
             // 
-            this.button3.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(209, 24);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(91, 35);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BtnEdit.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEdit.Location = new System.Drawing.Point(112, 24);
+            this.BtnEdit.Name = "BtnEdit";
+            this.BtnEdit.Size = new System.Drawing.Size(91, 35);
+            this.BtnEdit.TabIndex = 1;
+            this.BtnEdit.Text = "Editar";
+            this.BtnEdit.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnAdd
             // 
-            this.button4.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(306, 24);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(91, 35);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnAdd.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(15, 24);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(91, 35);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Agregar";
+            this.btnAdd.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvCandidatos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dgvCandidatos.AllowUserToAddRows = false;
+            this.dgvCandidatos.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCandidatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCandidatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCandidatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cedula,
             this.Nombre,
             this.PrimerApellido,
             this.SegundoApellido});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(475, 178);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(572, 434);
-            this.dataGridView1.TabIndex = 8;
+            this.dgvCandidatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCandidatos.Location = new System.Drawing.Point(475, 178);
+            this.dgvCandidatos.Name = "dgvCandidatos";
+            this.dgvCandidatos.ReadOnly = true;
+            this.dgvCandidatos.Size = new System.Drawing.Size(572, 434);
+            this.dgvCandidatos.TabIndex = 8;
             // 
             // Cedula
             // 
@@ -291,20 +294,23 @@
             // 
             // CandidatosFrm
             // 
+            this.AcceptButton = this.BtnCancel;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.BtnCancel;
             this.ClientSize = new System.Drawing.Size(1047, 612);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvCandidatos);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "CandidatosFrm";
             this.Text = "CandidatosFrm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCandidatos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -314,25 +320,25 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBxNombre;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtBxPrimerApellido;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtBxCedula;
+        private System.Windows.Forms.TextBox txtBxSegundoApellido;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button BtnDelete;
+        private System.Windows.Forms.Button BtnSearch;
+        private System.Windows.Forms.Button BtnEdit;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.DataGridView dgvCandidatos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrimerApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn SegundoApellido;
+        private System.Windows.Forms.Button BtnCancel;
+        private System.Windows.Forms.Button BtnSave;
     }
 }

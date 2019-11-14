@@ -30,25 +30,25 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lblVotos = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblGanador = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvResultados = new System.Windows.Forms.DataGridView();
             this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrimerApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SegundoApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Voto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.lblVotos);
             this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.lblGanador);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(0, 0);
@@ -56,25 +56,65 @@
             this.panel4.Size = new System.Drawing.Size(556, 514);
             this.panel4.TabIndex = 26;
             // 
-            // dataGridView1
+            // lblVotos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.lblVotos.AutoSize = true;
+            this.lblVotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVotos.Location = new System.Drawing.Point(154, 296);
+            this.lblVotos.Name = "lblVotos";
+            this.lblVotos.Size = new System.Drawing.Size(238, 31);
+            this.lblVotos.TabIndex = 25;
+            this.lblVotos.Text = "Numeros de Votos";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(230, 213);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 31);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Con";
+            // 
+            // lblGanador
+            // 
+            this.lblGanador.AutoSize = true;
+            this.lblGanador.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGanador.Location = new System.Drawing.Point(154, 140);
+            this.lblGanador.Name = "lblGanador";
+            this.lblGanador.Size = new System.Drawing.Size(215, 31);
+            this.lblGanador.TabIndex = 23;
+            this.lblGanador.Text = "NombreGanador";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(207, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(119, 31);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Ganador";
+            // 
+            // dgvResultados
+            // 
+            this.dgvResultados.AllowUserToAddRows = false;
+            this.dgvResultados.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvResultados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cedula,
             this.Nombre,
             this.PrimerApellido,
             this.SegundoApellido,
             this.Voto});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(556, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(481, 514);
-            this.dataGridView1.TabIndex = 27;
+            this.dgvResultados.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvResultados.Location = new System.Drawing.Point(556, 0);
+            this.dgvResultados.Name = "dgvResultados";
+            this.dgvResultados.ReadOnly = true;
+            this.dgvResultados.Size = new System.Drawing.Size(481, 514);
+            this.dgvResultados.TabIndex = 27;
             // 
             // Cedula
             // 
@@ -114,58 +154,19 @@
             this.Voto.Name = "Voto";
             this.Voto.ReadOnly = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(207, 66);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 31);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Ganador";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(154, 140);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(215, 31);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "NombreGanador";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(230, 213);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 31);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "Con";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(154, 296);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(238, 31);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Numeros de Votos";
-            // 
             // VotoResultadoFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1037, 514);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvResultados);
             this.Controls.Add(this.panel4);
             this.Name = "VotoResultadoFrm";
             this.Text = "VotoResultadoFrm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -173,15 +174,15 @@
         #endregion
 
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvResultados;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrimerApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn SegundoApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Voto;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblVotos;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblGanador;
         private System.Windows.Forms.Label label1;
     }
 }

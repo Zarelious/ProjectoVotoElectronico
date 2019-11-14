@@ -58,11 +58,11 @@
     <Compile Include="Forms\ElectoresFrm.Designer.cs">
       <DependentUpon>ElectoresFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MainMenuFrm.cs">
+    <Compile Include="Forms\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainMenuFrm.Designer.cs">
-      <DependentUpon>MainMenuFrm.cs</DependentUpon>
+    <Compile Include="Forms\FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\VotoFrm.cs">
       <SubType>Form</SubType>
@@ -84,8 +84,8 @@
     <EmbeddedResource Include="Forms\ElectoresFrm.resx">
       <DependentUpon>ElectoresFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainMenuFrm.resx">
-      <DependentUpon>MainMenuFrm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\VotoFrm.resx">
       <DependentUpon>VotoFrm.cs</DependentUpon>
