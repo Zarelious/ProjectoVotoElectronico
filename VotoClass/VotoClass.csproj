@@ -41,11 +41,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\AdminVotoDs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdminVotoDs.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DAL\" />
     <Folder Include="DLL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DAL\AdminVotoDs.xsc">
+      <DependentUpon>AdminVotoDs.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\AdminVotoDs.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AdminVotoDs.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\AdminVotoDs.xss">
+      <DependentUpon>AdminVotoDs.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
