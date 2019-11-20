@@ -30,11 +30,11 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.votoElectronicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.votacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ganadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.candidatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.electorresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.votacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ganadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,20 +60,6 @@
             this.votoElectronicoToolStripMenuItem.Size = new System.Drawing.Size(105, 19);
             this.votoElectronicoToolStripMenuItem.Text = "Voto Electronico";
             // 
-            // votacionToolStripMenuItem
-            // 
-            this.votacionToolStripMenuItem.Name = "votacionToolStripMenuItem";
-            this.votacionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.votacionToolStripMenuItem.Text = "Papeleta";
-            this.votacionToolStripMenuItem.Click += new System.EventHandler(this.votacionToolStripMenuItem_Click);
-            // 
-            // ganadorToolStripMenuItem
-            // 
-            this.ganadorToolStripMenuItem.Name = "ganadorToolStripMenuItem";
-            this.ganadorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ganadorToolStripMenuItem.Text = "Ganador";
-            this.ganadorToolStripMenuItem.Click += new System.EventHandler(this.ganadorToolStripMenuItem_Click);
-            // 
             // registracionToolStripMenuItem
             // 
             this.registracionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -97,7 +83,21 @@
             this.electorresToolStripMenuItem.Text = "Electores";
             this.electorresToolStripMenuItem.Click += new System.EventHandler(this.electorresToolStripMenuItem_Click);
             // 
-            // FrmMain
+            // votacionToolStripMenuItem
+            // 
+            this.votacionToolStripMenuItem.Name = "votacionToolStripMenuItem";
+            this.votacionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.votacionToolStripMenuItem.Text = "Votacion";
+            this.votacionToolStripMenuItem.Click += new System.EventHandler(this.votacionToolStripMenuItem_Click);
+            // 
+            // ganadorToolStripMenuItem
+            // 
+            this.ganadorToolStripMenuItem.Name = "ganadorToolStripMenuItem";
+            this.ganadorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ganadorToolStripMenuItem.Text = "Ganador";
+            this.ganadorToolStripMenuItem.Click += new System.EventHandler(this.ganadorToolStripMenuItem_Click);
+            // 
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
