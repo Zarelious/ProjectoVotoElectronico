@@ -15,6 +15,31 @@ namespace VotoElecForms.Forms
         public VotoFrm()
         {
             InitializeComponent();
+            HidePanel();
+        }
+         private void ShowPanel()
+        {
+            pnlCandidato.Visible = true;
+        }
+
+        private void HidePanel()
+        {
+            pnlCandidato.Visible = false;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            ShowPanel();
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            HidePanel();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

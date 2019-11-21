@@ -12,10 +12,17 @@ namespace VotoElecForms.Forms
 {
     public partial class ElectoresFrm : Form
     {
+        #region veriables
+
+        private int controll = 0;
+
+        #endregion
+
         public ElectoresFrm()
         {
             InitializeComponent();
         }
+        #region methods
         private void ClearTxtBoxes()
         {
             txtBxCedula.Text = "";
@@ -59,6 +66,117 @@ namespace VotoElecForms.Forms
             txtBxSegundoApellido.Enabled = false;
             txtBxNombre.Enabled = false;
             dtpNacimiento.Enabled = false;
+        }
+
+        private void VisibleSaveCancelBtn()
+        {
+            btnSave.Visible = true;
+            btnCancel.Visible = true;
+        }
+
+        private void HideSaveCancelBtn()
+        {
+            btnSave.Visible = false;
+            btnSave.Visible = false;
+        }
+
+        #endregion methods
+        
+
+        private bool verify()
+        {
+            bool result = true;
+
+            if (txtBxCedula.Text.Trim() == "")
+            {
+                errorMark.SetError(txtBxCedula, "Entre una Cedula");
+                result = false;
+            }
+            else
+            {
+                errorMark.SetError(txtBxCedula, "");
+            }
+
+            if (controll != 3)
+            {
+                if (txtBxNombre.Text.Trim() == "")
+                {
+                    errorMark.SetError(txtBxNombre, "Entre una Nombre");
+                    result = false;
+                }
+                else
+                {
+                    errorMark.SetError(txtBxNombre, "");
+                }
+
+                if (txtBxPrimerApellido.Text.Trim() == "")
+                {
+                    errorMark.SetError(txtBxPrimerApellido, "Entre el Apellido");
+                    result = false;
+                }
+                else
+                {
+                    errorMark.SetError(txtBxPrimerApellido, "");
+                }
+
+                if (txtBxSegundoApellido.Text.Trim() == "")
+                {
+                    errorMark.SetError(txtBxSegundoApellido, "Entre un Apellido");
+                    result = false;
+                }
+                else
+                {
+                    errorMark.SetError(txtBxSegundoApellido, "");
+                }
+            }
+
+            return result;
+        }
+
+        private void btnAdd_Click_1(object sender, EventArgs e)
+        {
+            controll = 1;
+            EnableTxtBoxes();
+            VisibleSaveCancelBtn();
+            btnSave.Text = "Guardar";
+        }
+
+        private void btnEdit_Click_1(object sender, EventArgs e)
+        {
+            controll = 2;
+            EnableTxtBoxes();
+            VisibleSaveCancelBtn();
+            btnSave.Text = "Guardar";
+        }
+
+        private void btnSearch_Click_1(object sender, EventArgs e)
+        {
+            controll = 3;
+            DisabledTxtBoxes();
+            txtBxCedula.Enabled = true;
+            VisibleSaveCancelBtn();
+            btnSave.Text = "Buscar";
+            btnDelete.Visible = true;
+        }
+
+        private void btnDelete_Click_1(object sender, EventArgs e)
+        {
+            controll = 4;
+            DisabledTxtBoxes();
+            txtBxCedula.Enabled = true;
+            VisibleSaveCancelBtn();
+            btnSave.Text = "Eliminar";
+        }
+
+        private void btnCancel_Click_1(object sender, EventArgs e)
+        {
+            DisabledTxtBoxes();
+            HideSaveCancelBtn();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
