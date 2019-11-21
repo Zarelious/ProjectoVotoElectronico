@@ -35,6 +35,7 @@ namespace VotoElecForms
         private void votacionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var mFrm = new VotoFrm();
+            mFrm.MdiParent = this;
             mFrm.Show();
         }
 

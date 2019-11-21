@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -53,12 +52,10 @@
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrimerApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SegundoApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.errorMark = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCandidatos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorMark)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -119,7 +116,6 @@
             this.BtnCancel.TabIndex = 20;
             this.BtnCancel.Text = "Cancelar";
             this.BtnCancel.UseVisualStyleBackColor = true;
-            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // txtBxNombre
             // 
@@ -214,7 +210,6 @@
             this.BtnDelete.TabIndex = 3;
             this.BtnDelete.Text = "Eliminar";
             this.BtnDelete.UseVisualStyleBackColor = true;
-            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // BtnSearch
             // 
@@ -225,7 +220,6 @@
             this.BtnSearch.TabIndex = 2;
             this.BtnSearch.Text = "Buscar";
             this.BtnSearch.UseVisualStyleBackColor = true;
-            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // BtnEdit
             // 
@@ -236,7 +230,6 @@
             this.BtnEdit.TabIndex = 1;
             this.BtnEdit.Text = "Editar";
             this.BtnEdit.UseVisualStyleBackColor = true;
-            this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // btnAdd
             // 
@@ -247,7 +240,6 @@
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dgvCandidatos
             // 
@@ -300,10 +292,6 @@
             this.SegundoApellido.ReadOnly = true;
             this.SegundoApellido.Width = 105;
             // 
-            // errorMark
-            // 
-            this.errorMark.ContainerControl = this;
-            // 
             // CandidatosFrm
             // 
             this.AcceptButton = this.BtnCancel;
@@ -323,7 +311,6 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCandidatos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorMark)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -353,6 +340,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SegundoApellido;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnSave;
-        private System.Windows.Forms.ErrorProvider errorMark;
     }
 }
