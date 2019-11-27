@@ -15,7 +15,8 @@ namespace VotoClass.Clases
 
         public bool AgregarCandidato()
         {
-            Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter mta = new Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter();
+            Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter mta =
+                new Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter();
             try
             {
                 mta.InsertQuery(Nombre, PrimerApellido, SegundoApellido, Cedula);
@@ -25,12 +26,12 @@ namespace VotoClass.Clases
             {
                 return false;
             }
-
         }
 
         public bool ActualizarCandidato()
         {
-            Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter mta = new Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter();
+            Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter mta =
+                new Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter();
             try
             {
                 mta.UpdateQuery(Nombre, PrimerApellido, SegundoApellido, Cedula);
@@ -40,12 +41,12 @@ namespace VotoClass.Clases
             {
                 return false;
             }
-
         }
 
         public bool EliminarCandidato()
         {
-            Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter mta = new Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter();
+            Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter mta =
+                new Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter();
             try
             {
                 mta.DeleteQuery(Cedula);
@@ -55,22 +56,40 @@ namespace VotoClass.Clases
             {
                 return false;
             }
-
         }
 
-       
-            public Voto_ElectronicoDataSet.CandidatosDataTable ListaCandidatos()
+
+        public Voto_ElectronicoDataSet.CandidatosDataTable ListaCandidatos()
         {
-            Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter mta = new Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter();
+            Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter mta =
+                new Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter();
             Voto_ElectronicoDataSet mds = new Voto_ElectronicoDataSet();
-             
-            
+
+
             try
             {
                 mta.Fill(mds.Candidatos);
                 return mds.Candidatos;
             }
-            catch { return mds.Candidatos; }
+            catch
+            {
+                return mds.Candidatos;
+            }
+        }
+
+        public int CantidadCandidatos()
+        {
+            Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter mta = new Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter();
+
+            try
+            {
+                return (int) mta.QtyQuery();
+            }
+            catch 
+            {
+                return 0;
+
+            }
         }
 
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VotoClass.Clases;
 using VotoElecForms.Forms;
 
 namespace VotoElecForms
@@ -34,8 +35,17 @@ namespace VotoElecForms
 
         private void votacionToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //VotoClass.Clases.Candidatos mCandi = new Candidatos();
+            //if (mCandi.CantidadCandidatos() >4 && (mCandi.CantidadCandidatos() < 10))
+            //{
+            //    var mFrm = new VotoFrm();
+            //    mFrm.Show();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Revise el los Candidatos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
             var mFrm = new VotoFrm();
-            mFrm.MdiParent = this;
             mFrm.Show();
         }
 

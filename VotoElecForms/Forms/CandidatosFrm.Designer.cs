@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.numCedula = new System.Windows.Forms.NumericUpDown();
             this.BtnSave = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.txtBxNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBxPrimerApellido = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtBxCedula = new System.Windows.Forms.TextBox();
             this.txtBxSegundoApellido = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,14 +49,14 @@
             this.BtnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvCandidatos = new System.Windows.Forms.DataGridView();
-            this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrimerApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SegundoApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorMark = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblCantidad = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numCedula)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCandidatos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorMark)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -80,13 +81,14 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lblCantidad);
+            this.panel2.Controls.Add(this.numCedula);
             this.panel2.Controls.Add(this.BtnSave);
             this.panel2.Controls.Add(this.BtnCancel);
             this.panel2.Controls.Add(this.txtBxNombre);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.txtBxPrimerApellido);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.txtBxCedula);
             this.panel2.Controls.Add(this.txtBxSegundoApellido);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label5);
@@ -96,15 +98,29 @@
             this.panel2.Size = new System.Drawing.Size(475, 512);
             this.panel2.TabIndex = 1;
             // 
+            // numCedula
+            // 
+            this.numCedula.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numCedula.Location = new System.Drawing.Point(16, 29);
+            this.numCedula.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.numCedula.Name = "numCedula";
+            this.numCedula.Size = new System.Drawing.Size(420, 30);
+            this.numCedula.TabIndex = 0;
+            // 
             // BtnSave
             // 
             this.BtnSave.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSave.Location = new System.Drawing.Point(378, 465);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(91, 35);
-            this.BtnSave.TabIndex = 21;
+            this.BtnSave.TabIndex = 4;
             this.BtnSave.Text = "Guardar";
             this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // BtnCancel
             // 
@@ -113,9 +129,10 @@
             this.BtnCancel.Location = new System.Drawing.Point(12, 465);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(91, 35);
-            this.BtnCancel.TabIndex = 20;
+            this.BtnCancel.TabIndex = 5;
             this.BtnCancel.Text = "Cancelar";
             this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // txtBxNombre
             // 
@@ -123,7 +140,7 @@
             this.txtBxNombre.Location = new System.Drawing.Point(100, 65);
             this.txtBxNombre.Name = "txtBxNombre";
             this.txtBxNombre.Size = new System.Drawing.Size(336, 29);
-            this.txtBxNombre.TabIndex = 13;
+            this.txtBxNombre.TabIndex = 1;
             // 
             // label1
             // 
@@ -141,7 +158,7 @@
             this.txtBxPrimerApellido.Location = new System.Drawing.Point(160, 100);
             this.txtBxPrimerApellido.Name = "txtBxPrimerApellido";
             this.txtBxPrimerApellido.Size = new System.Drawing.Size(276, 29);
-            this.txtBxPrimerApellido.TabIndex = 15;
+            this.txtBxPrimerApellido.TabIndex = 2;
             // 
             // label2
             // 
@@ -153,21 +170,13 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Primer Apellido";
             // 
-            // txtBxCedula
-            // 
-            this.txtBxCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBxCedula.Location = new System.Drawing.Point(16, 30);
-            this.txtBxCedula.Name = "txtBxCedula";
-            this.txtBxCedula.Size = new System.Drawing.Size(420, 29);
-            this.txtBxCedula.TabIndex = 17;
-            // 
             // txtBxSegundoApellido
             // 
             this.txtBxSegundoApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBxSegundoApellido.Location = new System.Drawing.Point(184, 135);
             this.txtBxSegundoApellido.Name = "txtBxSegundoApellido";
             this.txtBxSegundoApellido.Size = new System.Drawing.Size(252, 29);
-            this.txtBxSegundoApellido.TabIndex = 19;
+            this.txtBxSegundoApellido.TabIndex = 3;
             // 
             // label4
             // 
@@ -210,6 +219,7 @@
             this.BtnDelete.TabIndex = 3;
             this.BtnDelete.Text = "Eliminar";
             this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // BtnSearch
             // 
@@ -220,6 +230,7 @@
             this.BtnSearch.TabIndex = 2;
             this.BtnSearch.Text = "Buscar";
             this.BtnSearch.UseVisualStyleBackColor = true;
+            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // BtnEdit
             // 
@@ -230,6 +241,7 @@
             this.BtnEdit.TabIndex = 1;
             this.BtnEdit.Text = "Editar";
             this.BtnEdit.UseVisualStyleBackColor = true;
+            this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // btnAdd
             // 
@@ -240,6 +252,7 @@
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dgvCandidatos
             // 
@@ -248,11 +261,6 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvCandidatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCandidatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCandidatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Cedula,
-            this.Nombre,
-            this.PrimerApellido,
-            this.SegundoApellido});
             this.dgvCandidatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCandidatos.Location = new System.Drawing.Point(475, 178);
             this.dgvCandidatos.Name = "dgvCandidatos";
@@ -260,37 +268,19 @@
             this.dgvCandidatos.Size = new System.Drawing.Size(572, 434);
             this.dgvCandidatos.TabIndex = 8;
             // 
-            // Cedula
+            // errorMark
             // 
-            this.Cedula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Cedula.HeaderText = "Cedula";
-            this.Cedula.Name = "Cedula";
-            this.Cedula.ReadOnly = true;
-            this.Cedula.Width = 65;
+            this.errorMark.ContainerControl = this;
             // 
-            // Nombre
+            // lblCantidad
             // 
-            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 69;
-            // 
-            // PrimerApellido
-            // 
-            this.PrimerApellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.PrimerApellido.HeaderText = "Primer Apellido";
-            this.PrimerApellido.Name = "PrimerApellido";
-            this.PrimerApellido.ReadOnly = true;
-            this.PrimerApellido.Width = 93;
-            // 
-            // SegundoApellido
-            // 
-            this.SegundoApellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.SegundoApellido.HeaderText = "Segundo Apellido";
-            this.SegundoApellido.Name = "SegundoApellido";
-            this.SegundoApellido.ReadOnly = true;
-            this.SegundoApellido.Width = 105;
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidad.Location = new System.Drawing.Point(45, 276);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(109, 29);
+            this.lblCantidad.TabIndex = 19;
+            this.lblCantidad.Text = "Cantidad";
             // 
             // CandidatosFrm
             // 
@@ -309,8 +299,10 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numCedula)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCandidatos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorMark)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -324,7 +316,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBxPrimerApellido;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtBxCedula;
         private System.Windows.Forms.TextBox txtBxSegundoApellido;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -334,11 +325,10 @@
         private System.Windows.Forms.Button BtnEdit;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvCandidatos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrimerApellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SegundoApellido;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnSave;
+        private System.Windows.Forms.ErrorProvider errorMark;
+        private System.Windows.Forms.NumericUpDown numCedula;
+        private System.Windows.Forms.Label lblCantidad;
     }
 }
