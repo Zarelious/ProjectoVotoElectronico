@@ -224,6 +224,7 @@ namespace VotoElecForms.Forms
                     {
                         MessageBox.Show("Elector agregado", "Agregado");
                         Refrescar();
+                        ClearTxtBoxes();
                     }
                     else
                     {

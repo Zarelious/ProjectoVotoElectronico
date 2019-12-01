@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBxNombre = new System.Windows.Forms.TextBox();
             this.txtBxPrimerApellido = new System.Windows.Forms.TextBox();
@@ -42,6 +42,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.numCedula = new System.Windows.Forms.NumericUpDown();
             this.rbtnNo = new System.Windows.Forms.RadioButton();
             this.rbtnYes = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
@@ -59,19 +60,13 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.errorMark = new System.Windows.Forms.ErrorProvider(this.components);
             this.dgvElectores = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numCedula = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numCedula)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorMark)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvElectores)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numCedula)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -198,6 +193,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(455, 493);
             this.panel2.TabIndex = 13;
+            // 
+            // numCedula
+            // 
+            this.numCedula.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numCedula.Location = new System.Drawing.Point(15, 29);
+            this.numCedula.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.numCedula.Name = "numCedula";
+            this.numCedula.Size = new System.Drawing.Size(423, 30);
+            this.numCedula.TabIndex = 2;
             // 
             // rbtnNo
             // 
@@ -373,72 +381,15 @@
             // 
             this.dgvElectores.AllowUserToAddRows = false;
             this.dgvElectores.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvElectores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvElectores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvElectores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvElectores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.Nacimiento,
-            this.dataGridViewTextBoxColumn1});
             this.dgvElectores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvElectores.Location = new System.Drawing.Point(455, 120);
             this.dgvElectores.Name = "dgvElectores";
             this.dgvElectores.ReadOnly = true;
             this.dgvElectores.Size = new System.Drawing.Size(521, 434);
             this.dgvElectores.TabIndex = 16;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 69;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Primer Apellido";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 101;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Segundo Apellido";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 105;
-            // 
-            // Nacimiento
-            // 
-            this.Nacimiento.HeaderText = "Fecha de Nacimiento";
-            this.Nacimiento.Name = "Nacimiento";
-            this.Nacimiento.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Cedula";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 65;
-            // 
-            // numCedula
-            // 
-            this.numCedula.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numCedula.Location = new System.Drawing.Point(15, 29);
-            this.numCedula.Maximum = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.numCedula.Name = "numCedula";
-            this.numCedula.Size = new System.Drawing.Size(423, 30);
-            this.numCedula.TabIndex = 2;
             // 
             // ElectoresFrm
             // 
@@ -455,11 +406,11 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numCedula)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorMark)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvElectores)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numCedula)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -495,11 +446,6 @@
         private System.Windows.Forms.DataGridView dgvElectores;
         private System.Windows.Forms.RadioButton rbtnNo;
         private System.Windows.Forms.RadioButton rbtnYes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nacimiento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.NumericUpDown numCedula;
     }
 }

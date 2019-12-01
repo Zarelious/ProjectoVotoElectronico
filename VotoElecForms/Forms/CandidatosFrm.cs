@@ -222,6 +222,7 @@ namespace VotoElecForms.Forms
                     {
                         MessageBox.Show("Candidato agregado", "Agregado");
                         Refrescar();
+                        ClearTxtBoxes();
                     }
                     else
                     {

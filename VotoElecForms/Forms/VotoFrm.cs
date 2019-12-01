@@ -44,6 +44,10 @@ namespace VotoElecForms.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            VotoClass.Clases.Electores mElectores = new Electores();
+            mElectores.Cedula = Convert.ToInt16(txtBxCedula.Text.ToString().Trim());
+            
+            
             ShowPanel();
         }
 

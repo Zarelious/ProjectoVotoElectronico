@@ -22,9 +22,8 @@ namespace VotoClass.Clases
                 return true;
             }
 
-            // LateFee = Convert.ToInt16(EdadSpan.TotalDays) * (mcost + (mcost * (10 / 100)));
+            
         }
-
 
     }
 }
