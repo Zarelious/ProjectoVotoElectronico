@@ -9,3 +9,10 @@
         }
     }
 }
+
+namespace VotoClass.Voto_ElectronicoDataSetTableAdapters {
+    
+    
+    public partial class CandidatosTableAdapter {
+    }
+}

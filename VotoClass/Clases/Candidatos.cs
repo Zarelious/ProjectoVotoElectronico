@@ -12,6 +12,8 @@ namespace VotoClass.Clases
         public string PrimerApellido { get; set; }
         public string SegundoApellido { get; set; }
         public int Cedula { get; set; }
+        public int Votos { get; set; }
+
 
         public bool AgregarCandidato()
         {
@@ -19,7 +21,7 @@ namespace VotoClass.Clases
                 new Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter();
             try
             {
-                mta.InsertQuery(Nombre, PrimerApellido, SegundoApellido, Cedula);
+                mta.InsertQuery(Nombre, PrimerApellido, SegundoApellido, Cedula, Votos);
                 return true;
             }
             catch
@@ -34,7 +36,7 @@ namespace VotoClass.Clases
                 new Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter();
             try
             {
-                mta.UpdateQuery(Nombre, PrimerApellido, SegundoApellido, Cedula);
+                mta.UpdateQuery(Nombre, PrimerApellido, SegundoApellido, Cedula, Votos);
                 return true;
             }
             catch
@@ -92,6 +94,41 @@ namespace VotoClass.Clases
             }
         }
 
+        public Voto_ElectronicoDataSet.CandidatosDataTable GanadorCandidato()
+        {
+            Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter mta =
+                new Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter();
+            Voto_ElectronicoDataSet mds = new Voto_ElectronicoDataSet();
 
+            try
+            {
+                mta.WinnerQuery(mds.Candidatos);
+                if (mds.Candidatos.Rows.Count == 1)
+                {
+                    Voto_ElectronicoDataSet.CandidatosRow mRow =
+                        (Voto_ElectronicoDataSet.CandidatosRow) mds.Candidatos.Rows[0];
+                    Nombre = mRow.Nombre;
+                    PrimerApellido = mRow.PrimerApellido;
+                    SegundoApellido = mRow.SegundoApellido;
+                    Cedula = mRow.Cedula;
+                    Votos = mRow.Votos;
+                    return mds.Candidatos;
+                }
+                else
+                {
+                    return mds.Candidatos;
+                }
+               
+            }
+            catch (Exception e)
+            {
+               Console.WriteLine(e);
+                throw;
+               
+            }
+            
+        }
     }
+
+    
 }

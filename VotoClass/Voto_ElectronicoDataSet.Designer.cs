@@ -364,6 +364,8 @@ namespace VotoClass {
             
             private global::System.Data.DataColumn columnCedula;
             
+            private global::System.Data.DataColumn columnVotos;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public CandidatosDataTable() {
@@ -431,6 +433,14 @@ namespace VotoClass {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn VotosColumn {
+                get {
+                    return this.columnVotos;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -466,13 +476,14 @@ namespace VotoClass {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CandidatosRow AddCandidatosRow(string Nombre, string PrimerApellido, string SegundoApellido, ElectoresRow parentElectoresRowByFK_Candidatos_Candidatos) {
+            public CandidatosRow AddCandidatosRow(string Nombre, string PrimerApellido, string SegundoApellido, ElectoresRow parentElectoresRowByFK_Candidatos_Candidatos, int Votos) {
                 CandidatosRow rowCandidatosRow = ((CandidatosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Nombre,
                         PrimerApellido,
                         SegundoApellido,
-                        null};
+                        null,
+                        Votos};
                 if ((parentElectoresRowByFK_Candidatos_Candidatos != null)) {
                     columnValuesArray[3] = parentElectoresRowByFK_Candidatos_Candidatos[5];
                 }
@@ -509,6 +520,7 @@ namespace VotoClass {
                 this.columnPrimerApellido = base.Columns["PrimerApellido"];
                 this.columnSegundoApellido = base.Columns["SegundoApellido"];
                 this.columnCedula = base.Columns["Cedula"];
+                this.columnVotos = base.Columns["Votos"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -522,6 +534,8 @@ namespace VotoClass {
                 base.Columns.Add(this.columnSegundoApellido);
                 this.columnCedula = new global::System.Data.DataColumn("Cedula", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCedula);
+                this.columnVotos = new global::System.Data.DataColumn("Votos", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVotos);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCedula}, true));
                 this.columnNombre.AllowDBNull = false;
@@ -532,6 +546,7 @@ namespace VotoClass {
                 this.columnSegundoApellido.MaxLength = 50;
                 this.columnCedula.AllowDBNull = false;
                 this.columnCedula.Unique = true;
+                this.columnVotos.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1459,6 +1474,17 @@ namespace VotoClass {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Votos {
+                get {
+                    return ((int)(this[this.tableCandidatos.VotosColumn]));
+                }
+                set {
+                    this[this.tableCandidatos.VotosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ElectoresRow ElectoresRow {
                 get {
                     return ((ElectoresRow)(this.GetParentRow(this.Table.ParentRelations["FK_Candidatos_Candidatos"])));
@@ -2013,41 +2039,44 @@ namespace VotoClass.Voto_ElectronicoDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("PrimerApellido", "PrimerApellido");
             tableMapping.ColumnMappings.Add("SegundoApellido", "SegundoApellido");
             tableMapping.ColumnMappings.Add("Cedula", "Cedula");
+            tableMapping.ColumnMappings.Add("Votos", "Votos");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Candidatos] WHERE (([Nombre] = @Original_Nombre) AND ([PrimerA" +
-                "pellido] = @Original_PrimerApellido) AND ([SegundoApellido] = @Original_SegundoA" +
-                "pellido) AND ([Cedula] = @Original_Cedula))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Candidatos] WHERE (([Nombre] = @Original_Nombre) AND ([PrimerApellid" +
+                "o] = @Original_PrimerApellido) AND ([SegundoApellido] = @Original_SegundoApellid" +
+                "o) AND ([Cedula] = @Original_Cedula) AND ([Votos] = @Original_Votos))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PrimerApellido", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrimerApellido", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SegundoApellido", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SegundoApellido", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cedula", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Votos", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Votos", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Candidatos] ([Nombre], [PrimerApellido], [SegundoApellido], [C" +
-                "edula]) VALUES (@Nombre, @PrimerApellido, @SegundoApellido, @Cedula);\r\nSELECT No" +
-                "mbre, PrimerApellido, SegundoApellido, Cedula FROM Candidatos WHERE (Cedula = @C" +
-                "edula)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Candidatos] ([Nombre], [PrimerApellido], [SegundoApellido], [Cedula], [Votos]) VALUES (@Nombre, @PrimerApellido, @SegundoApellido, @Cedula, @Votos);
+SELECT Nombre, PrimerApellido, SegundoApellido, Cedula, Votos FROM Candidatos WHERE (Cedula = @Cedula)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrimerApellido", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrimerApellido", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SegundoApellido", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SegundoApellido", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Votos", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Votos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Candidatos] SET [Nombre] = @Nombre, [PrimerApellido] = @PrimerApellido, [SegundoApellido] = @SegundoApellido, [Cedula] = @Cedula WHERE (([Nombre] = @Original_Nombre) AND ([PrimerApellido] = @Original_PrimerApellido) AND ([SegundoApellido] = @Original_SegundoApellido) AND ([Cedula] = @Original_Cedula));
-SELECT Nombre, PrimerApellido, SegundoApellido, Cedula FROM Candidatos WHERE (Cedula = @Cedula)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Candidatos] SET [Nombre] = @Nombre, [PrimerApellido] = @PrimerApellido, [SegundoApellido] = @SegundoApellido, [Cedula] = @Cedula, [Votos] = @Votos WHERE (([Nombre] = @Original_Nombre) AND ([PrimerApellido] = @Original_PrimerApellido) AND ([SegundoApellido] = @Original_SegundoApellido) AND ([Cedula] = @Original_Cedula) AND ([Votos] = @Original_Votos));
+SELECT Nombre, PrimerApellido, SegundoApellido, Cedula, Votos FROM Candidatos WHERE (Cedula = @Cedula)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrimerApellido", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrimerApellido", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SegundoApellido", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SegundoApellido", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Votos", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Votos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PrimerApellido", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrimerApellido", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SegundoApellido", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SegundoApellido", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cedula", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Votos", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Votos", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2060,10 +2089,11 @@ SELECT Nombre, PrimerApellido, SegundoApellido, Cedula FROM Candidatos WHERE (Ce
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[8];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Nombre, PrimerApellido, SegundoApellido, Cedula FROM dbo.Candidatos";
+            this._commandCollection[0].CommandText = "SELECT        Nombre, PrimerApellido, SegundoApellido, Cedula, Votos\r\nFROM       " +
+                "     Candidatos";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -2076,33 +2106,44 @@ SELECT Nombre, PrimerApellido, SegundoApellido, Cedula FROM Candidatos WHERE (Ce
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT Cedula, Nombre, PrimerApellido, SegundoApellido FROM Candidatos WHERE (Ced" +
-                "ula = @Cedula)";
+            this._commandCollection[3].CommandText = "SELECT Cedula, Nombre, PrimerApellido, SegundoApellido, Votos FROM Candidatos WHE" +
+                "RE (Cedula = @Cedula)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "INSERT INTO [dbo].[Candidatos] ([Nombre], [PrimerApellido], [SegundoApellido], [C" +
-                "edula]) VALUES (@Nombre, @PrimerApellido, @SegundoApellido, @Cedula)";
+            this._commandCollection[4].CommandText = "INSERT INTO Candidatos\r\n                         (Nombre, PrimerApellido, Segundo" +
+                "Apellido, Cedula, Votos)\r\nVALUES        (@Nombre,@PrimerApellido,@SegundoApellid" +
+                "o,@Cedula, @Votos)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrimerApellido", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PrimerApellido", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SegundoApellido", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "SegundoApellido", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Votos", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Votos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
             this._commandCollection[5].CommandText = "SELECT        COUNT(*) AS total\r\nFROM            Candidatos";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "UPDATE [dbo].[Candidatos] SET [Nombre] = @Nombre, [PrimerApellido] = @PrimerApell" +
-                "ido, [SegundoApellido] = @SegundoApellido, [Cedula] = @Cedula WHERE Cedula=@Cedu" +
-                "la";
+            this._commandCollection[6].CommandText = "UPDATE       Candidatos\r\nSET                Nombre = @Nombre, PrimerApellido = @P" +
+                "rimerApellido, SegundoApellido = @SegundoApellido, Cedula = @Cedula, Votos = @Vo" +
+                "tos\r\nWHERE        (Cedula = @Cedula)";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrimerApellido", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PrimerApellido", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SegundoApellido", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "SegundoApellido", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cedula", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Cedula", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Votos", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Votos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = @"SELECT        Nombre, PrimerApellido, SegundoApellido, Cedula, Votos
+FROM            Candidatos
+WHERE        (Votos =
+                             (SELECT        MAX(Votos) AS Expr1
+                               FROM            Candidatos AS Candidatos_1))";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2158,6 +2199,30 @@ SELECT Nombre, PrimerApellido, SegundoApellido, Cedula FROM Candidatos WHERE (Ce
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int WinnerQuery(Voto_ElectronicoDataSet.CandidatosDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Voto_ElectronicoDataSet.CandidatosDataTable GetDataBy6() {
+            this.Adapter.SelectCommand = this.CommandCollection[7];
+            Voto_ElectronicoDataSet.CandidatosDataTable dataTable = new Voto_ElectronicoDataSet.CandidatosDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(Voto_ElectronicoDataSet.CandidatosDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
@@ -2188,7 +2253,7 @@ SELECT Nombre, PrimerApellido, SegundoApellido, Cedula FROM Candidatos WHERE (Ce
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Nombre, string Original_PrimerApellido, string Original_SegundoApellido, int Original_Cedula) {
+        public virtual int Delete(string Original_Nombre, string Original_PrimerApellido, string Original_SegundoApellido, int Original_Cedula, int Original_Votos) {
             if ((Original_Nombre == null)) {
                 throw new global::System.ArgumentNullException("Original_Nombre");
             }
@@ -2208,6 +2273,7 @@ SELECT Nombre, PrimerApellido, SegundoApellido, Cedula FROM Candidatos WHERE (Ce
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_SegundoApellido));
             }
             this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_Cedula));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Votos));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2228,7 +2294,7 @@ SELECT Nombre, PrimerApellido, SegundoApellido, Cedula FROM Candidatos WHERE (Ce
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Nombre, string PrimerApellido, string SegundoApellido, int Cedula) {
+        public virtual int Insert(string Nombre, string PrimerApellido, string SegundoApellido, int Cedula, int Votos) {
             if ((Nombre == null)) {
                 throw new global::System.ArgumentNullException("Nombre");
             }
@@ -2248,6 +2314,7 @@ SELECT Nombre, PrimerApellido, SegundoApellido, Cedula FROM Candidatos WHERE (Ce
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(SegundoApellido));
             }
             this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Cedula));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Votos));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2268,7 +2335,7 @@ SELECT Nombre, PrimerApellido, SegundoApellido, Cedula FROM Candidatos WHERE (Ce
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Nombre, string PrimerApellido, string SegundoApellido, int Cedula, string Original_Nombre, string Original_PrimerApellido, string Original_SegundoApellido, int Original_Cedula) {
+        public virtual int Update(string Nombre, string PrimerApellido, string SegundoApellido, int Cedula, int Votos, string Original_Nombre, string Original_PrimerApellido, string Original_SegundoApellido, int Original_Cedula, int Original_Votos) {
             if ((Nombre == null)) {
                 throw new global::System.ArgumentNullException("Nombre");
             }
@@ -2288,25 +2355,27 @@ SELECT Nombre, PrimerApellido, SegundoApellido, Cedula FROM Candidatos WHERE (Ce
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(SegundoApellido));
             }
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Cedula));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Votos));
             if ((Original_Nombre == null)) {
                 throw new global::System.ArgumentNullException("Original_Nombre");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_Nombre));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Nombre));
             }
             if ((Original_PrimerApellido == null)) {
                 throw new global::System.ArgumentNullException("Original_PrimerApellido");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_PrimerApellido));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_PrimerApellido));
             }
             if ((Original_SegundoApellido == null)) {
                 throw new global::System.ArgumentNullException("Original_SegundoApellido");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_SegundoApellido));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_SegundoApellido));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Cedula));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Cedula));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Votos));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2327,8 +2396,8 @@ SELECT Nombre, PrimerApellido, SegundoApellido, Cedula FROM Candidatos WHERE (Ce
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Nombre, string PrimerApellido, string SegundoApellido, string Original_Nombre, string Original_PrimerApellido, string Original_SegundoApellido, int Original_Cedula) {
-            return this.Update(Nombre, PrimerApellido, SegundoApellido, Original_Cedula, Original_Nombre, Original_PrimerApellido, Original_SegundoApellido, Original_Cedula);
+        public virtual int Update(string Nombre, string PrimerApellido, string SegundoApellido, int Votos, string Original_Nombre, string Original_PrimerApellido, string Original_SegundoApellido, int Original_Cedula, int Original_Votos) {
+            return this.Update(Nombre, PrimerApellido, SegundoApellido, Original_Cedula, Votos, Original_Nombre, Original_PrimerApellido, Original_SegundoApellido, Original_Cedula, Original_Votos);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2387,7 +2456,7 @@ SELECT Nombre, PrimerApellido, SegundoApellido, Cedula FROM Candidatos WHERE (Ce
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(string Nombre, string PrimerApellido, string SegundoApellido, int Cedula) {
+        public virtual int InsertQuery(string Nombre, string PrimerApellido, string SegundoApellido, int Cedula, int Votos) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             if ((Nombre == null)) {
                 throw new global::System.ArgumentNullException("Nombre");
@@ -2408,6 +2477,7 @@ SELECT Nombre, PrimerApellido, SegundoApellido, Cedula FROM Candidatos WHERE (Ce
                 command.Parameters[2].Value = ((string)(SegundoApellido));
             }
             command.Parameters[3].Value = ((int)(Cedula));
+            command.Parameters[4].Value = ((int)(Votos));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2457,7 +2527,7 @@ SELECT Nombre, PrimerApellido, SegundoApellido, Cedula FROM Candidatos WHERE (Ce
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateQuery(string Nombre, string PrimerApellido, string SegundoApellido, int Cedula) {
+        public virtual int UpdateQuery(string Nombre, string PrimerApellido, string SegundoApellido, int Cedula, int Votos) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
             if ((Nombre == null)) {
                 throw new global::System.ArgumentNullException("Nombre");
@@ -2478,6 +2548,7 @@ SELECT Nombre, PrimerApellido, SegundoApellido, Cedula FROM Candidatos WHERE (Ce
                 command.Parameters[2].Value = ((string)(SegundoApellido));
             }
             command.Parameters[3].Value = ((int)(Cedula));
+            command.Parameters[4].Value = ((int)(Votos));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
