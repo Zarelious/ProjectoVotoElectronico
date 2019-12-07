@@ -28,36 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtBxCedula = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.NumBxCedula = new System.Windows.Forms.NumericUpDown();
             this.btnSave = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlCandidato = new System.Windows.Forms.Panel();
+            this.cbxCandidatos = new System.Windows.Forms.ComboBox();
             this.btnSaveCandidato = new System.Windows.Forms.Button();
             this.bntCancelCandidato = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
-            this.cbxCandidatos = new System.Windows.Forms.ComboBox();
+            this.txtbxExit = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumBxCedula)).BeginInit();
             this.pnlCandidato.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtBxCedula
-            // 
-            this.txtBxCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBxCedula.Location = new System.Drawing.Point(38, 106);
-            this.txtBxCedula.Name = "txtBxCedula";
-            this.txtBxCedula.Size = new System.Drawing.Size(420, 29);
-            this.txtBxCedula.TabIndex = 19;
             // 
             // label4
             // 
@@ -91,17 +85,30 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.NumBxCedula);
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Controls.Add(this.BtnCancel);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.pnlCandidato);
-            this.panel2.Controls.Add(this.txtBxCedula);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 100);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(890, 298);
             this.panel2.TabIndex = 21;
+            // 
+            // NumBxCedula
+            // 
+            this.NumBxCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumBxCedula.Location = new System.Drawing.Point(49, 104);
+            this.NumBxCedula.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.NumBxCedula.Name = "NumBxCedula";
+            this.NumBxCedula.Size = new System.Drawing.Size(420, 29);
+            this.NumBxCedula.TabIndex = 26;
             // 
             // btnSave
             // 
@@ -148,6 +155,16 @@
             this.pnlCandidato.Size = new System.Drawing.Size(398, 298);
             this.pnlCandidato.TabIndex = 20;
             // 
+            // cbxCandidatos
+            // 
+            this.cbxCandidatos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxCandidatos.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxCandidatos.FormattingEnabled = true;
+            this.cbxCandidatos.Location = new System.Drawing.Point(104, 103);
+            this.cbxCandidatos.Name = "cbxCandidatos";
+            this.cbxCandidatos.Size = new System.Drawing.Size(189, 32);
+            this.cbxCandidatos.TabIndex = 27;
+            // 
             // btnSaveCandidato
             // 
             this.btnSaveCandidato.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -157,6 +174,7 @@
             this.btnSaveCandidato.TabIndex = 26;
             this.btnSaveCandidato.Text = "Guardar";
             this.btnSaveCandidato.UseVisualStyleBackColor = true;
+            this.btnSaveCandidato.Click += new System.EventHandler(this.btnSaveCandidato_Click);
             // 
             // bntCancelCandidato
             // 
@@ -168,6 +186,7 @@
             this.bntCancelCandidato.TabIndex = 25;
             this.bntCancelCandidato.Text = "Cancelar";
             this.bntCancelCandidato.UseVisualStyleBackColor = true;
+            this.bntCancelCandidato.Click += new System.EventHandler(this.bntCancelCandidato_Click);
             // 
             // label2
             // 
@@ -191,6 +210,7 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.txtbxExit);
             this.panel5.Controls.Add(this.btnExit);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 0);
@@ -212,15 +232,12 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // cbxCandidatos
+            // txtbxExit
             // 
-            this.cbxCandidatos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxCandidatos.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxCandidatos.FormattingEnabled = true;
-            this.cbxCandidatos.Location = new System.Drawing.Point(104, 103);
-            this.cbxCandidatos.Name = "cbxCandidatos";
-            this.cbxCandidatos.Size = new System.Drawing.Size(189, 32);
-            this.cbxCandidatos.TabIndex = 27;
+            this.txtbxExit.Location = new System.Drawing.Point(4, 27);
+            this.txtbxExit.Name = "txtbxExit";
+            this.txtbxExit.Size = new System.Drawing.Size(144, 20);
+            this.txtbxExit.TabIndex = 25;
             // 
             // VotoFrm
             // 
@@ -238,17 +255,17 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumBxCedula)).EndInit();
             this.pnlCandidato.ResumeLayout(false);
             this.pnlCandidato.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtBxCedula;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
@@ -264,5 +281,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.ComboBox cbxCandidatos;
+        private System.Windows.Forms.NumericUpDown NumBxCedula;
+        private System.Windows.Forms.TextBox txtbxExit;
     }
 }

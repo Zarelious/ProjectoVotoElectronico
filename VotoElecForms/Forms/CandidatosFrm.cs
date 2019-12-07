@@ -16,6 +16,8 @@ namespace VotoElecForms.Forms
 
         private int controll = 0;
         VotoClass.Clases.Candidatos mCandi = new VotoClass.Clases.Candidatos();
+        public int mIndex { get; set; }
+
         #endregion
 
         public CandidatosFrm()
@@ -161,6 +163,23 @@ namespace VotoElecForms.Forms
             }
             
         }
+        private void dgvCandidatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                mIndex = e.RowIndex;
+                DataGridViewRow sViewRow = dgvCandidatos.Rows[mIndex];
+                numCedula.Text = sViewRow.Cells[3].Value.ToString();
+                txtBxNombre.Text = sViewRow.Cells[0].Value.ToString();
+                txtBxPrimerApellido.Text = sViewRow.Cells[1].Value.ToString();
+                txtBxSegundoApellido.Text = sViewRow.Cells[2].Value.ToString();
+
+            }
+            catch
+            {
+                
+            }
+        }
 
         #endregion methods
 
@@ -204,6 +223,7 @@ namespace VotoElecForms.Forms
             DisabledTxtBoxes();
             HideSaveCancelBtn();
             ClearTxtBoxes();
+            Refrescar();
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -223,6 +243,8 @@ namespace VotoElecForms.Forms
                         MessageBox.Show("Candidato agregado", "Agregado");
                         Refrescar();
                         ClearTxtBoxes();
+                        DisabledTxtBoxes();
+                        HideSaveCancelBtn();
                     }
                     else
                     {
@@ -237,6 +259,9 @@ namespace VotoElecForms.Forms
                     {
                         MessageBox.Show("Candidato Actualizado", "Actualizar");
                         Refrescar();
+                        ClearTxtBoxes();
+                        DisabledTxtBoxes();
+                        HideSaveCancelBtn();
                     }
                     else
                     {
@@ -246,10 +271,19 @@ namespace VotoElecForms.Forms
 
                 if (controll == 3)
                 {
-                    if (true)
+                    if (mCandi.SearchCandidatos())
                     {
-                        MessageBox.Show("Candidato Buscado", "search");
+                        numCedula.Text = mCandi.Cedula.ToString();
+                        txtBxNombre.Text = mCandi.Nombre.ToString();
+                        txtBxPrimerApellido.Text = mCandi.PrimerApellido.ToString();
+                        txtBxSegundoApellido.Text = mCandi.SegundoApellido.ToString();
                         Refrescar();
+                        DisabledTxtBoxes();
+                        HideSaveCancelBtn();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Candidato no fue encontrado", "search");
                     }
                     
                 }
@@ -261,6 +295,9 @@ namespace VotoElecForms.Forms
                         if (mCandi.EliminarCandidato())
                         {
                             Refrescar();
+                            ClearTxtBoxes();
+                            DisabledTxtBoxes();
+                            HideSaveCancelBtn();
                         }
                         else
                         {
@@ -273,5 +310,7 @@ namespace VotoElecForms.Forms
             }
             count();
         }
+
+        
     }
 }

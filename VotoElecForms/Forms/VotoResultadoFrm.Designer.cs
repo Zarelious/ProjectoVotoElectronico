@@ -35,11 +35,6 @@
             this.lblGanador = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvResultados = new System.Windows.Forms.DataGridView();
-            this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrimerApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SegundoApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Voto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +55,7 @@
             // 
             this.lblVotos.AutoSize = true;
             this.lblVotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVotos.Location = new System.Drawing.Point(154, 296);
+            this.lblVotos.Location = new System.Drawing.Point(170, 294);
             this.lblVotos.Name = "lblVotos";
             this.lblVotos.Size = new System.Drawing.Size(238, 31);
             this.lblVotos.TabIndex = 25;
@@ -80,7 +75,7 @@
             // 
             this.lblGanador.AutoSize = true;
             this.lblGanador.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGanador.Location = new System.Drawing.Point(154, 140);
+            this.lblGanador.Location = new System.Drawing.Point(154, 135);
             this.lblGanador.Name = "lblGanador";
             this.lblGanador.Size = new System.Drawing.Size(215, 31);
             this.lblGanador.TabIndex = 23;
@@ -102,57 +97,15 @@
             this.dgvResultados.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvResultados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvResultados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvResultados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Cedula,
-            this.Nombre,
-            this.PrimerApellido,
-            this.SegundoApellido,
-            this.Voto});
             this.dgvResultados.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvResultados.Location = new System.Drawing.Point(556, 0);
             this.dgvResultados.Name = "dgvResultados";
             this.dgvResultados.ReadOnly = true;
             this.dgvResultados.Size = new System.Drawing.Size(481, 514);
             this.dgvResultados.TabIndex = 27;
-            // 
-            // Cedula
-            // 
-            this.Cedula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Cedula.HeaderText = "Cedula";
-            this.Cedula.Name = "Cedula";
-            this.Cedula.ReadOnly = true;
-            this.Cedula.Width = 65;
-            // 
-            // Nombre
-            // 
-            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 69;
-            // 
-            // PrimerApellido
-            // 
-            this.PrimerApellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.PrimerApellido.HeaderText = "Primer Apellido";
-            this.PrimerApellido.Name = "PrimerApellido";
-            this.PrimerApellido.ReadOnly = true;
-            this.PrimerApellido.Width = 93;
-            // 
-            // SegundoApellido
-            // 
-            this.SegundoApellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.SegundoApellido.HeaderText = "Segundo Apellido";
-            this.SegundoApellido.Name = "SegundoApellido";
-            this.SegundoApellido.ReadOnly = true;
-            this.SegundoApellido.Width = 105;
-            // 
-            // Voto
-            // 
-            this.Voto.HeaderText = "Votos";
-            this.Voto.Name = "Voto";
-            this.Voto.ReadOnly = true;
             // 
             // VotoResultadoFrm
             // 
@@ -175,11 +128,6 @@
 
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dgvResultados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrimerApellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SegundoApellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Voto;
         private System.Windows.Forms.Label lblVotos;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblGanador;

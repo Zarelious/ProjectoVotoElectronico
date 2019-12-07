@@ -33,6 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblCantidad = new System.Windows.Forms.Label();
             this.numCedula = new System.Windows.Forms.NumericUpDown();
             this.BtnSave = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvCandidatos = new System.Windows.Forms.DataGridView();
             this.errorMark = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblCantidad = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCedula)).BeginInit();
@@ -97,6 +97,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(475, 512);
             this.panel2.TabIndex = 1;
+            // 
+            // lblCantidad
+            // 
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidad.Location = new System.Drawing.Point(45, 276);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(109, 29);
+            this.lblCantidad.TabIndex = 19;
+            this.lblCantidad.Text = "Cantidad";
             // 
             // numCedula
             // 
@@ -260,6 +270,8 @@
             this.dgvCandidatos.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvCandidatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCandidatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvCandidatos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvCandidatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCandidatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCandidatos.Location = new System.Drawing.Point(475, 178);
@@ -267,20 +279,11 @@
             this.dgvCandidatos.ReadOnly = true;
             this.dgvCandidatos.Size = new System.Drawing.Size(572, 434);
             this.dgvCandidatos.TabIndex = 8;
+            this.dgvCandidatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCandidatos_CellContentClick);
             // 
             // errorMark
             // 
             this.errorMark.ContainerControl = this;
-            // 
-            // lblCantidad
-            // 
-            this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(45, 276);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(109, 29);
-            this.lblCantidad.TabIndex = 19;
-            this.lblCantidad.Text = "Cantidad";
             // 
             // CandidatosFrm
             // 

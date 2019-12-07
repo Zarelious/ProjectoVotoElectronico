@@ -20,12 +20,16 @@ namespace VotoElecForms.Forms
 
         private int controll = 0;
         VotoClass.Clases.Electores mElec = new VotoClass.Clases.Electores();
+        public int mIndex { get; set; }
 
         #endregion
 
         public ElectoresFrm()
         {
             InitializeComponent();
+            ClearTxtBoxes();
+            HideSaveCancelBtn();
+            DisabledTxtBoxes();
             Refrescar();
         }
 
@@ -150,16 +154,35 @@ namespace VotoElecForms.Forms
         {
             if (rbtnYes.Checked == true)
             {
-                return "yes";
+                return "Si";
             }
             else
             {
-                return "no";
+                return "No";
+            }
+        }
+        private void dgvElectores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                mIndex = e.RowIndex;
+                DataGridViewRow sViewRow = dgvElectores.Rows[mIndex];
+                numCedula.Text = sViewRow.Cells[5].Value.ToString();
+                txtBxNombre.Text = sViewRow.Cells[0].Value.ToString();
+                txtBxPrimerApellido.Text = sViewRow.Cells[1].Value.ToString();
+                txtBxSegundoApellido.Text = sViewRow.Cells[2].Value.ToString();
+                dtpNacimiento.Text = sViewRow.Cells[3].Value.ToString();
+
+
+            }
+            catch
+            {
+
             }
         }
         #endregion methods
 
-        
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -225,6 +248,8 @@ namespace VotoElecForms.Forms
                         MessageBox.Show("Elector agregado", "Agregado");
                         Refrescar();
                         ClearTxtBoxes();
+                        DisabledTxtBoxes();
+                        HideSaveCancelBtn();
                     }
                     else
                     {
@@ -239,6 +264,9 @@ namespace VotoElecForms.Forms
                     {
                         MessageBox.Show("Elector Actualizado", "Actualizar");
                         Refrescar();
+                        ClearTxtBoxes();
+                        DisabledTxtBoxes();
+                        HideSaveCancelBtn();
                     }
                     else
                     {
@@ -248,10 +276,27 @@ namespace VotoElecForms.Forms
 
                 if (controll == 3)
                 {
-                    if (true)
+                    try
                     {
-                        MessageBox.Show("Elector Buscado", "search");
-                        Refrescar();
+                        mElec.SearchTable();
+                        numCedula.Text = mElec.Cedula.ToString();
+                        txtBxNombre.Text = mElec.Nombre.ToString();
+                        txtBxPrimerApellido.Text = mElec.PrimerApellido.ToString();
+                        txtBxSegundoApellido.Text = mElec.SegundoApellido.ToString();
+                        dtpNacimiento.Text = mElec.FechaNacimiento.ToString();
+                        dgvElectores.DataSource = null;
+                        dgvElectores.DataSource = mElec.SearchTable();
+                        dgvElectores.AutoResizeColumns();
+                        dgvElectores.Refresh();
+                        ClearTxtBoxes();
+                        DisabledTxtBoxes();
+                        HideSaveCancelBtn();
+                    }
+                    catch (Exception exception)
+                    {
+                        MessageBox.Show("Elector no fue Encontrado", "search");
+                        Console.WriteLine(exception);
+                        throw;
                     }
                     
                     
@@ -264,6 +309,9 @@ namespace VotoElecForms.Forms
                         if (mElec.EliminarElector())
                         {
                             Refrescar();
+                            ClearTxtBoxes();
+                            DisabledTxtBoxes();
+                            HideSaveCancelBtn();
                         }
                         else
                         {
@@ -276,5 +324,7 @@ namespace VotoElecForms.Forms
             }
             
         }
+
+        
     }
 }

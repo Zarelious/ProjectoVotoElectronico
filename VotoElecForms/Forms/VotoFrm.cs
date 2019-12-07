@@ -17,10 +17,11 @@ namespace VotoElecForms.Forms
         {
             InitializeComponent();
             HidePanel();
-            fillComboBox();
+            FillComboBox();
         }
 
         #region methods
+
 
         private void ShowPanel()
         {
@@ -32,7 +33,7 @@ namespace VotoElecForms.Forms
             pnlCandidato.Visible = false;
         }
 
-        private void fillComboBox()
+        private void FillComboBox()
         {
             VotoClass.Clases.Candidatos mCandi = new Candidatos();
             cbxCandidatos.DisplayMember = "Nombre";
@@ -40,15 +41,32 @@ namespace VotoElecForms.Forms
             cbxCandidatos.DataSource = mCandi.ListaCandidatos();
         }
 
+        private void ClearBoxs()
+        {
+            NumBxCedula.Value = 0;
+        }
+
         #endregion
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             VotoClass.Clases.Electores mElectores = new Electores();
-            mElectores.Cedula = Convert.ToInt16(txtBxCedula.Text.ToString().Trim());
-            
-            
-            ShowPanel();
+            mElectores.Cedula = int.Parse(NumBxCedula.Text.ToString().Trim());
+            mElectores.SearchTable();
+            VotoClass.Clases.Verificar mVerificar = new Verificar();
+
+            if (mVerificar.EdadVerificacion(mElectores.FechaNacimiento) && mElectores.ProblemasJudiciales == "No")
+            {
+                ShowPanel();
+                ClearBoxs();
+
+            }
+            else
+            {
+                MessageBox.Show("No es major de 18 anos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ClearBoxs();
+            }
+
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -58,7 +76,37 @@ namespace VotoElecForms.Forms
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (txtbxExit.Text.Trim()  == "TerminarelVoto")
+            {
+                if (MessageBox.Show("Seguro que quere salir de la pantalla de voto?", "Terminar Voto",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+                
+            }
+            
+            
+        }
+
+        private void btnSaveCandidato_Click(object sender, EventArgs e)
+        {
+            VotoClass.Clases.Verificar mVerificar = new Verificar();
+            if (mVerificar.GuardarVoto(Convert.ToInt32(cbxCandidatos.SelectedValue)))
+            {
+                MessageBox.Show("Voto Guardado", "Voto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                HidePanel();
+            }
+            else
+            {
+                MessageBox.Show("Error Contacte un Administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                HidePanel();
+            }
+        }
+
+        private void bntCancelCandidato_Click(object sender, EventArgs e)
+        {
+            HidePanel();
         }
     }
 }

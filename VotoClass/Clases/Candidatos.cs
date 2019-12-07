@@ -128,6 +128,30 @@ namespace VotoClass.Clases
             }
             
         }
+
+        public bool SearchCandidatos()
+        {
+            Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter mta =
+                new Voto_ElectronicoDataSetTableAdapters.CandidatosTableAdapter();
+            Voto_ElectronicoDataSet mds = new Voto_ElectronicoDataSet();
+
+            mta.FillByCandidatos(mds.Candidatos, Cedula);
+            if (mds.Candidatos.Rows.Count == 1)
+            {
+                Voto_ElectronicoDataSet.CandidatosRow mRow =
+                    (Voto_ElectronicoDataSet.CandidatosRow)mds.Candidatos.Rows[0];
+                Nombre = mRow.Nombre;
+                PrimerApellido = mRow.PrimerApellido;
+                SegundoApellido = mRow.SegundoApellido;
+                Cedula = mRow.Cedula;
+                Votos = mRow.Votos;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 
     

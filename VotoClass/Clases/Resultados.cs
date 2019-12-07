@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VotoClass.Clases
 {
-    class Resultados
+    public class Resultados
     {
         public String Ganador { get; set; }
         public int VotosCandidato1 { get; set; }

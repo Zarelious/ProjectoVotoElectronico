@@ -74,7 +74,38 @@ namespace VotoClass.Clases
             catch { return mds.Electores; }
         }
 
+        public Voto_ElectronicoDataSet.ElectoresDataTable SearchTable()
+        {
+            Voto_ElectronicoDataSetTableAdapters.ElectoresTableAdapter mta = new Voto_ElectronicoDataSetTableAdapters.ElectoresTableAdapter();
+            Voto_ElectronicoDataSet mds = new Voto_ElectronicoDataSet();
 
+            try
+            {
+                mta.FillByElectores(mds.Electores, Cedula);
+                if (mds.Electores.Rows.Count == 1)
+                {
+                    Voto_ElectronicoDataSet.ElectoresRow mRow =
+                        (Voto_ElectronicoDataSet.ElectoresRow) mds.Electores.Rows[0];
+                    Nombre = mRow.Nombre;
+                    PrimerApellido = mRow.PrimerApellido;
+                    SegundoApellido = mRow.SegundoApellido;
+                    FechaNacimiento = mRow.FechaNacimiento;
+                    ProblemasJudiciales = mRow.ProblemasJudiciales;
+                    Cedula = mRow.Cedula;
+
+                    return mds.Electores;
+                }
+                else
+                {
+                    return mds.Electores;
+                }
+            }
+            catch
+            {
+                return mds.Electores;
+
+            }
+        }
 
     }
 }

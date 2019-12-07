@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace VotoClass.Clases
 {
-    class Verificar
+    public class Verificar
     {
         public TimeSpan EdadSpan { get; set; }
+        public int Votos { get; set; }
+
 
         public bool EdadVerificacion(DateTime mDate)
         {
-            EdadSpan = mDate.Subtract(DateTime.Today);
+            EdadSpan = DateTime.Today.Subtract(mDate);
             if (EdadSpan.TotalDays < (365 * 18))
             {
                 return false;
@@ -22,6 +24,36 @@ namespace VotoClass.Clases
                 return true;
             }
 
+            
+        }
+
+        public bool GuardarVoto(int cedula)
+        {
+            Clases.Candidatos mCandidatos = new Candidatos();
+            mCandidatos.Cedula = cedula;
+            if (mCandidatos.SearchCandidatos())
+            {
+                Votos = mCandidatos.Votos;
+                Votos = Votos+1;
+                mCandidatos.Votos = Votos;
+                if (mCandidatos.ActualizarCandidato())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+            
+            
+            
+
+            
             
         }
 

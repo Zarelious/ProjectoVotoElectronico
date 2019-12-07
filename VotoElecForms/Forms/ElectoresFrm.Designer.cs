@@ -383,6 +383,8 @@
             this.dgvElectores.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvElectores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvElectores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvElectores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvElectores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvElectores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvElectores.Location = new System.Drawing.Point(455, 120);
@@ -390,6 +392,7 @@
             this.dgvElectores.ReadOnly = true;
             this.dgvElectores.Size = new System.Drawing.Size(521, 434);
             this.dgvElectores.TabIndex = 16;
+            this.dgvElectores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvElectores_CellContentClick);
             // 
             // ElectoresFrm
             // 
